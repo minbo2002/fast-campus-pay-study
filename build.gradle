@@ -23,14 +23,24 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.flywaydb:flyway-core'
-    implementation 'org.flywaydb:flyway-mysql'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // test에서 lombok 사용
+    testCompileOnly 'org.projectlombok:lombok'
+    testAnnotationProcessor 'org.projectlombok:lombok'
+    // debuging sql 확인용
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.0'
+
+    // validation
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // flyway
+    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.flywaydb:flyway-mysql'
 
     //	querydsl
     implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
