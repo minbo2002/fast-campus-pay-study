@@ -20,4 +20,9 @@ public class PaymentReadService {
 
         return PaymentDetailInformation.from(payment);
     }
+
+    public Payment getPaymentByUserId(Long userId) {
+
+        return paymentRepository.findByUserId(userId);
+    }
 }
