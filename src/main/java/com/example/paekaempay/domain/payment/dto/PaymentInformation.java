@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 public class PaymentInformation {
 
-    private String price;
+    private Integer price;
     private PaymentType paymentType;
     private Long userId;
     private Long storeId;
@@ -18,7 +18,7 @@ public class PaymentInformation {
     private LocalDateTime lastUpdatedAt;
 
     @Builder
-    private PaymentInformation(String price, PaymentType paymentType, Long userId, Long storeId, LocalDateTime createdAt, LocalDateTime lastUpdatedAt) {
+    private PaymentInformation(Integer price, PaymentType paymentType, Long userId, Long storeId, LocalDateTime createdAt, LocalDateTime lastUpdatedAt) {
         this.price = price;
         this.paymentType = paymentType;
         this.userId = userId;

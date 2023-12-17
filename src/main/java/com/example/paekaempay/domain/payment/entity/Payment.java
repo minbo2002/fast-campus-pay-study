@@ -22,7 +22,7 @@ public class Payment extends BaseEntity {
     private Long id;
 
     @Column(nullable = false)
-    private String price;
+    private Integer price;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -37,11 +37,15 @@ public class Payment extends BaseEntity {
     private Store store;
 
     @Builder
-    private Payment(Long id, String price, PaymentType paymentType, User user, Store store) {
+    private Payment(Long id, Integer price, PaymentType paymentType, User user, Store store) {
         this.id = id;
         this.price = price;
         this.paymentType = paymentType;
         this.user = user;
         this.store = store;
+    }
+
+    public void updateStatus () {
+        this.paymentType = PaymentType.COMPLETE;
     }
 }

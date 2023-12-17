@@ -17,7 +17,7 @@ public class PaymentDto {
     @ToString
     public static class PaymentInfo {
 
-        private final String price;
+        private final Integer price;
         private final PaymentType paymentType;
         private final Long userId;
         private final Long storeId;
@@ -27,7 +27,7 @@ public class PaymentDto {
         private final LocalDateTime lastUpdatedAt;
 
         @Builder
-        private PaymentInfo(String price, PaymentType paymentType, Long userId, Long storeId, LocalDateTime createdAt, LocalDateTime lastUpdatedAt) {
+        private PaymentInfo(Integer price, PaymentType paymentType, Long userId, Long storeId, LocalDateTime createdAt, LocalDateTime lastUpdatedAt) {
             this.price = price;
             this.paymentType = paymentType;
             this.userId = userId;
@@ -53,10 +53,10 @@ public class PaymentDto {
     @NoArgsConstructor
     public static class PaymentRequest {
 
-        private String price;
+        private Integer price;
 
         @Builder
-        private PaymentRequest(String price) {
+        private PaymentRequest(Integer price) {
             this.price = price;
         }
     }
@@ -66,10 +66,10 @@ public class PaymentDto {
     public static class PaymentDetailInfo {
 
         private final String storeName;
-        private final String price;
+        private final Integer price;
 
         @Builder
-        private PaymentDetailInfo(String storeName, String price) {
+        private PaymentDetailInfo(String storeName, Integer price) {
             this.storeName = storeName;
             this.price = price;
         }

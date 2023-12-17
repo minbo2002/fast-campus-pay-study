@@ -8,10 +8,10 @@ import lombok.Getter;
 public class PaymentDetailInformation {
 
     private String storeName;
-    private String price;
+    private Integer price;
 
     @Builder
-    private PaymentDetailInformation(String storeName, String price) {
+    private PaymentDetailInformation(String storeName, Integer price) {
         this.storeName = storeName;
         this.price = price;
     }
