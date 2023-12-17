@@ -4,7 +4,7 @@ CREATE TABLE payments (
     id bigint not null auto_increment,
     store_id bigint not null,
     user_id bigint not null,
-    price VARCHAR(255) NOT NULL,
+    price int NOT NULL,
     payment_type ENUM('COMPLETE','REQUEST') NOT NULL,
     created_at TIMESTAMP NOT NULL,
     last_updated_at TIMESTAMP NULL DEFAULT NULL,
