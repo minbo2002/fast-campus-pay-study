@@ -18,19 +18,16 @@ import org.springframework.transaction.annotation.Transactional;
 @UseCase
 @Transactional
 @RequiredArgsConstructor
-public class PaymentUseCase {
+public class StorePaymentUseCase {
 
     private final UserReadService userReadService;
     private final StoreReadService storeReadService;
     private final PaymentWriteService paymentWriteService;
 
-    public PaymentInformation createPayment(Long storeId, Long userId, PaymentDto.PaymentRequest paymentRequest) {
+    public PaymentInformation createPaymentRequest(Long storeId, Long userId, PaymentDto.PaymentRequest paymentRequest) {
 
         Store store = storeReadService.getStoreById(storeId);
         User user = userReadService.getUserById(userId);
-
-        System.out.println("store = " + store);
-        System.out.println("user = " + user);
 
         Payment payment = Payment.builder()
                 .price(paymentRequest.getPrice())
@@ -38,8 +35,6 @@ public class PaymentUseCase {
                 .store(store)
                 .user(user)
                 .build();
-
-        System.out.println("payment = " + payment);
 
         return PaymentInformation.from(paymentWriteService.create(payment));
     }

@@ -17,11 +17,10 @@ public class UserRestController {
 
     private final UserReadService userReadService;
 
-    @GetMapping("/info/{id}")
-    public ResponseEntity<UserDto.UserInfo> getUserInfo(@PathVariable Long id) {
-        UserInformation userInfo = userReadService.getUserInfo(id);
+    @GetMapping("/info/{userId}")
+    public ResponseEntity<UserDto.UserInfo> getUserInfo(@PathVariable("userId") Long id) {
+        UserInformation user = userReadService.getUserInfo(id);
 
-        return ResponseEntity.ok(UserDto.UserInfo.from(userInfo));
+        return ResponseEntity.ok(UserDto.UserInfo.from(user));
     }
-
 }
